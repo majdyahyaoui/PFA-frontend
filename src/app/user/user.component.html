@@ -1,0 +1,184 @@
+<div class="body">
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-12 col-xl-4">
+
+        <div class="card mb-3 pb-3">
+          <div class="card-body text-center" style="padding: 0px">
+            <div class="demi-back">
+            </div>
+            <img src="https://bootdey.com/img/Content/avatar/avatar3.png"
+                 alt="Kathy Davis"
+                 class="img-fluid rounded-circle mb-2 "
+                 width="128" height="128"
+                  style="margin-top: -70px">
+            <h4 class="card-title mb-0 mt-2">{{user.nom | uppercase}} {{user.prenom}}</h4>
+            <p class="mb-3 mt-3 " > <span class="student"  >Student</span></p>
+            <div class="col-6 offset-3">
+              <form>
+
+                <button type="button" class="btnn" (click)="Logout()">
+                  <i class="material-icons">
+                    power_settings_new
+                  </i>
+                    <span  style="position: relative ; top:-6px ; font-weight: 500">
+                      LogOut
+                    </span>
+                </button>
+
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-3" >
+          <div class="card-header" style="padding: 0px ; text-align: center">
+            <h5 class="card-title mb-0 title"  >About</h5>
+          </div>
+
+          <div class="card-body">
+            <mat-list>
+              <mat-list-item >
+                <mat-icon class="blue" mat-list-icon>drafts</mat-icon>
+                <h4  class="blue" mat-line>Mail address :</h4>
+                <p  class="blue" mat-line> {{user.addMail}} </p>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item >
+                <mat-icon   class="blue" mat-list-icon>border_color</mat-icon>
+                <h4  class="blue" mat-line>Student at :</h4>
+                <p  class="blue" mat-line>University of Sciences </p>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item >
+                <mat-icon  class="blue" mat-list-icon>room</mat-icon>
+                <h4  class="blue" mat-line>From :</h4>
+                <p  class="blue" mat-line>Manar1 Tunis</p>
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+      <div class="col-12 col-xl-6 offset-xl-1">
+
+
+        <div class=" container" >
+          <div  class="mt-4 claim" style="text-align: center">
+          <form >
+            <h4 class="mt-5 title" >Make a Claim :</h4>
+            <div class="form-block">
+              <mat-form-field appearance="outline">
+                <mat-label>Select matiere </mat-label>
+                <mat-select [(value)]="matiere"  name="matiere" >
+                  <ng-container *ngFor="let matiere of listMatiere" >
+                    <mat-option [(value)]="matiere">{{matiere.nomMat}} </mat-option>
+                  </ng-container>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Select a type</mat-label>
+                <mat-select [(value)]="selected"  (selectionChange)="cc()" name="type">
+                  <mat-option value="1">double correction </mat-option>
+                  <mat-option value="2">verify note  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+
+              <mat-form-field appearance="outline">
+                <mat-label>Select Examen or Ds</mat-label>
+                <mat-select [(value)]="selected1"  (selectionChange)="cc()" name="type">
+                  <mat-option value="1">Examen </mat-option>
+                  <mat-option value="2">Ds  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+
+              <mat-form-field   class = "tp-full-width" name="note" appearance="outline">
+                <input [(ngModel)]="rec.note"type=""  matInput placeholder = "Current Note" name="Current note">
+              </mat-form-field>
+
+
+              <div *ngIf= "selected == 2" >
+                <mat-form-field  class = "tp-full-width" name="note2" appearance="outline">
+                  <input [(ngModel)]="rec.note2" matInput placeholder = "Real Note" name="Expected note">
+                </mat-form-field>
+              </div >
+
+              <div class="row">
+                <div class="col-6">
+                  <button class=" btnn" type="submit" (click)="reclamation()" >Submit</button>
+                </div>
+                <div class="col-6">
+                  <button  class=" btnn" type="reset">Reset</button>
+                </div>
+              </div>
+
+            </div>
+          </form>
+          </div>
+        </div>
+        <!--</div>-->
+      </div>
+
+  <div class="col-11 mt-4 mb-4" >
+    <div class=" container"  style="padding: 0px" >
+      <div class="card-body " style="background-color: #fff ;padding: 0px"  >
+        <div class="table-responsive" >
+          <table class="table" >
+            <thead class=" text-primary" >
+            <th class="th">
+              First Name
+            </th >
+            <th class="th">
+              Last Name
+            </th>
+            <th class="th">
+              Subject
+            </th >
+            <th class="th">
+              Mark
+            </th >
+
+            </thead>
+            <tbody>
+            <tr *ngFor="let list of listEva">
+              <td class="td">
+                {{list.idEtud.nom}}
+              </td>
+              <td class="td">
+                {{list.idEtud.prenom}}
+              </td >
+              <td class="td">
+                {{list.matiere.nomMat}}
+              </td >
+              <td class="td">
+                {{list.note}}
+              </td>
+
+            </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+
+
+</div>
+
+</div>

@@ -1,0 +1,37 @@
+<!-- Default form login -->
+<div class="id1">
+  <div class="container ">
+      <form >
+
+        <div class="text-center form">
+
+          <h4 class="mb-4 title " >Sign In</h4>
+          <!-- Email --><br>
+          <div style="padding: 10px 100px 40px 100px ">
+
+            <mat-form-field appearance="outline">
+              <mat-label>E-mail</mat-label>
+              <input matInput type="email"  [(ngModel)]="mail" placeholder="E-mail" name="mail" class="input">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput  type="password" [(ngModel)]="passwd" placeholder="Password" name="passwd" class="input">
+            </mat-form-field>
+
+
+
+
+            <!-- Sign in button -->
+            <button class="btnn btn btn-block mb-3"  (click)="login()">Sign in</button>
+            <button class="btnn btn btn-block mb-5"  (click)="signup()">Sign up</button>
+          </div>
+
+
+
+        </div>
+
+      </form>
+      <!-- Default form login -->
+  </div>
+</div>

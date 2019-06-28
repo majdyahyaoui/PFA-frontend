@@ -1,0 +1,19 @@
+<form class = "tp-form ml-5 " >
+  <h3 class="alert">
+    select Professor to receive claim
+  </h3>
+  <mat-form-field>
+  <mat-label>Select a professor</mat-label>
+  <mat-select [(value)]="selected" >
+    <mat-option>None</mat-option>
+    <ng-container *ngFor="let a of listProf">
+      <mat-option [value]="a.idProf">{{a.nom}} {{a.prenom}}</mat-option>
+
+    </ng-container>
+
+  </mat-select>
+
+  </mat-form-field>
+  <button mat-raised-button color="primary" style="margin-right: 5px"  (click)="closeDiag(selected)" > OK </button>
+
+</form>

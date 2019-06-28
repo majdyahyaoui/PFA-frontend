@@ -1,0 +1,70 @@
+<div class="card-body">
+  <div class="container">
+    <form >
+    <div class="row">
+        <div class="col-7">
+          <mat-form-field appearance="outline">
+            <mat-label>Select your class</mat-label>
+            <mat-select [(value)]="selected">
+
+              <ng-container *ngFor="let classe of listClasse" >
+                <mat-option value="{{classe.niveau}}" > {{classe.niveau}} {{classe.amphi}} </mat-option>
+              </ng-container>
+
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-5">
+          <button class="btn btnn"  (click)="getEtudByClasse(this.selected)" >OK</button>
+        </div>
+
+    </div>
+    </form>
+  </div>
+
+  <div class="table-responsive">
+
+    <table class="table">
+      <thead class="text-primary " >
+      <th class="th">
+        First Name
+      </th>
+      <th class="th">
+        Last Name
+      </th>
+      <th class="th">
+        Note
+      </th>
+      <th class="th">
+        Valider
+      </th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let list of listEtudiant"  >
+        <td class="td">
+          {{list.prenom}}
+        </td>
+        <td class="td">
+          {{list.nom}}
+        </td>
+        <td class="td">
+          <form>
+            <input type="number" [(ngModel)]=" this.var " name="{{list.idEtud}}">
+          </form>
+        </td>
+        <td class="td">
+
+          <button class="btn btnn" (click)="insererNote( list.idClasse , list )" > valider </button>
+
+        </td>
+
+      </tr>
+
+      </tbody>
+    </table>
+    <form>
+      <button class="btn btnn center-block" (click)="close()" > Finish </button>
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="card">
+        <div class="card-header card-header-danger">
+            <h4 class="card-title">Student claim</h4>
+        </div>
+        <div class="card-body">
+            <div id="typography">
+                <!--<div class="card-title">-->
+                    <!--<h2>Reclamation</h2>-->
+                <!--</div>-->
+                <div class="row">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                <th>
+                                    Examen or Ds
+                                </th>
+                                <th>
+                                    type
+                                </th>
+                                <th>
+                                    Etudiant
+                                </th>
+                                <th>
+                                    Matiere
+                                </th>
+                                <th>
+                                    current note
+                                </th>
+                                <th>
+                                    expected note
+                                </th>
+                                <th>
+                                    Gerer reclamation
+                                </th>
+                                <!--<th>-->
+                                    <!--Delete-->
+                                <!--</th>-->
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let list of listRec">
+                                    <td>
+                                        {{list.examenOrDs}}
+                                    </td>
+                                    <td>
+                                        {{list.type}}
+                                    </td>
+                                    <td>
+                                        {{list.idEtud.nom}}
+                                    </td>
+                                    <td>
+                                        {{list.matiere.nomMat}}
+                                    </td>
+                                    <td>
+                                        {{list.note}}
+                                    </td>
+                                    <td>
+                                        {{list.note2}}
+                                    </td>
+                                <td>
+                                    <button (click)="diag(list.matiere,list)" class="btn btn-primary">Gerer</button>
+                                </td>
+                                    <!--<td>-->
+                                        <!--<form>-->
+                                            <!--<button class="btn btn-danger" (click)="deleteProf(list.idProf)" type="button" name="delete" >Delete</button>-->
+                                        <!--</form>-->
+                                    <!--</td>-->
+                                </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+  </div></div>
